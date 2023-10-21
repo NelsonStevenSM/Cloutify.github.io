@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2
         with:
-          node-version: '16' # o la versión que estés utilizando
+          node-version: '20' # o la versión que estés utilizando
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
