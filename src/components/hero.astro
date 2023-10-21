@@ -1,7 +1,7 @@
 ---
 import { Picture } from "astro:assets";
 // import heroImage from "@assets/hero.webp";
-import heroImage from "@assets/ajedrez_Tecnologico.png";
+import ajedrez from "@assets/ajedrez_Tecnologico.png";
 import Link from "@components/ui/link.astro";
 import { Icon } from "astro-icon";
 ---
@@ -9,10 +9,10 @@ import { Icon } from "astro-icon";
 <main
   class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24"
 >
-  <div class="animation-border py-6 md:order-1 hidden md:block relative">
+  <div class="animation-border py-6 md:order-1 hidden md:block relative w-[520px]">
     <Picture
-      src={heroImage}
-      alt="Astronaut in the air"
+      src={ajedrez}
+      alt="Ajedrez"
       widths={[200, 400, 600]}
       sizes="(max-width: 600px) 100vw, 120px"
       loading="eager"
