@@ -1,0 +1,126 @@
+---
+import { Picture } from "astro:assets";
+// import heroImage from "@assets/hero.webp";
+import heroImage from "@assets/ajedrez_Tecnologico.png";
+import Link from "@components/ui/link.astro";
+import { Icon } from "astro-icon";
+---
+
+<main
+  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24"
+>
+  <div class="animation-border py-6 md:order-1 hidden md:block relative">
+    <Picture
+      src={heroImage}
+      alt="Astronaut in the air"
+      widths={[200, 400, 600]}
+      sizes="(max-width: 600px) 100vw, 120px"
+      loading="eager"
+      format="avif"
+      class="animation-border"
+    />
+  </div>
+  <div>
+    <span class="relative slide-subtitle inline-block uppercase mb-4 font-bold text-primary-400"
+      >Vayamos al siguiente nivel</span
+    >
+    <h1
+      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tighter xl:tracking-tighter text-wrap-balance text-primary"
+    >
+      No sigas el juego, <span class="font-normal text-tertiary1-500">cámbialo!</span>
+    </h1>
+    <p class="text-lg mt-4 text-gray-700 max-w-xl text-wrap-balance">
+      Bienvenido a <strong class="text-secondary">Cloutify</strong>, donde la innovación es el camino a seguir. Descubre
+      el poder de transformar tu negocio con nosotros.
+    </p>
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <Link
+        href="#"
+        href="https://web3templates.com/templates/astroship-starter-website-template-for-astro"
+        target="_blank"
+        class="flex gap-1 items-center justify-center relative group font-bold"
+        rel="noopener"
+      >
+        <Icon class="text-white w-8 h-8" name="bx:bx-bulb" />
+        <div class="flex flex-col">
+          <span class="group-hover:hidden"
+            >Comienza tu transformación</span
+          >
+          <span class="hidden group-hover:inline"
+            >Potencia tu negocio ahora</span
+          >
+        </div>
+      </Link>
+      <!-- <Link
+        size="lg"
+        style="outline"
+        rel="noopener"
+        href="https://github.com/surjithctly/astroship"
+        class="flex gap-1 items-center justify-center"
+        target="_blank"
+      >
+        <Icon class="text-black w-8 h-8 icon-[mdi-light--home]" name="mdi:contact-outline" />
+         ¡Iniciemos!
+      </Link> -->
+    </div>
+  </div>
+</main>
+<style>
+  .group:hover .group-hover\:hidden {
+    display: none;
+  }
+  .group:hover .group-hover\:inline {
+    display: inline;
+  }
+  .slide-subtitle::before {
+    display: inline-block;
+    display: absolute;
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: theme('colors.tertiary1.DEFAULT');
+    top: 0;
+    bottom: 0;
+    border-radius: 3px;
+    left: 0;
+    margin-right: 8px;
+  }
+
+  .animation-border::before {
+    position: absolute;
+    content: "";
+    /* left: 6%; */
+    /* bottom: 10%; */
+    width: 500px;
+    height: 500px;
+    border: 1px solid theme('colors.primary.DEFAULT');
+    /* border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%; */
+    border-radius: 53% 47% 73% 27% / 64% 64% 36% 36% ;
+    will-change: border-radius, transform;
+    animation: sliderShape 5s linear infinite;
+    display: block;
+    z-index: -1;
+    /* -webkit-animation: sliderShape 5s linear infinite; */
+  }
+  @keyframes sliderShape {
+    0%,
+    100% {
+      /* border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; */
+      border-radius: 42% 58% 70% 30% / 64% 64% 55% 55%;
+      transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+
+    34% {
+      border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+      transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
+    }
+
+    50% {
+      transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+    67% {
+      border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+      transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
+    }
+  }
+</style>

@@ -1,0 +1,97 @@
+---
+import Navbar from "@components/navbar/navbar.astro";
+import Footer from "@components/footer.astro";
+import Icon from "astro-icon";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+    <Footer />
+
+    <!-- <button id="backToTopBtn" title="Go to top"> -->
+    <!-- <Icon class="text-white w-8 h-8" name="bx:arrow-up" /> -->
+    <Icon class="h-16 w-16" id="backToTopBtn" name="mdi:arrow-up" />
+    <!-- </button> -->
+    <script defer>
+    // Obtener el botón:
+    let mybutton = document.getElementById("backToTopBtn");
+
+    // Cuando el usuario hace scroll en la página, ejecutar la función:
+    window.onscroll = function () {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      // Muestra el botón cuando el usuario hace scroll 20px desde el top de la página
+      if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+      ) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // Cuando el usuario hace click en el botón, volver al top de la página
+    mybutton.addEventListener("click", function () {
+      document.body.scrollTop = 0; // Para Safari
+      document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+    });
+    </script>
+  </body>
+</html>
+<style is:global>
+  /* Improve Page speed */
+  /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+  img {
+    content-visibility: auto;
+  }
+  .hidden {
+    /* display:none; */
+  }
+  /* Estilos para el botón de volver arriba */
+  #backToTopBtn {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en la ventana */
+    bottom: 20px; /* Distancia desde la parte inferior de la ventana */
+    right: 30px; /* Distancia desde la parte derecha de la ventana */
+    z-index: 99; /* Asegura que el botón esté por encima de otros elementos */
+    border: none; /* Remueve el borde predeterminado */
+    outline: none; /* Remueve el outline predeterminado */
+    background-color: #262262; /* Color de fondo negro */
+    color: white; /* Texto blanco */
+    cursor: pointer; /* Cursor de puntero */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    /* transition: background-color 15s ease, color 15s ease; */
+  }
+
+  #backToTopBtn:hover {
+    background-color: #1c75b8; /* Cambia el fondo en el hover */
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

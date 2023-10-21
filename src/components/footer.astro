@@ -1,0 +1,82 @@
+---
+import Icon from "astro-icon";
+import Container from "@components/container.astro";
+---
+
+<footer class="h-gradient py-8 mt-4 text-lg bg-secondary text-white">
+  <Container class="grid grid-rows gap-8 md:grid-cols-3 my-2 max-w-screen-lg">
+    <aside class="flex-basis-15">
+      <h4 class="font-bold mb-4">Nosotros</h4>
+      <div>
+        <p class="mb-4 text-wrap-balance">
+          An IT consultancy can help you assess your technology needs and
+          develop a technology strategy that aligns with your business
+        </p>
+        <div class="flex gap-4">
+          <a href="https://www.google.com" target="_blank">
+            <Icon
+              class="h-10 w-10 hover:text-tertiary1"
+              name="ic:baseline-facebook"
+            /></a
+          >
+          <a href="https://www.google.com" target="_blank">
+            <Icon
+              class="h-10 w-10 hover:text-tertiary1"
+              name="ant-design:twitter-circle-filled"
+            /></a
+          >
+          <a href="https://www.google.com" target="_blank">
+            <Icon
+              class="h-10 w-10 hover:text-tertiary1"
+              name="entypo-social:linkedin-with-circle"
+            /></a
+          >
+        </div>
+      </div>
+    </aside>
+    <nav>
+      <h4 class="font-bold mb-4">Enlaces</h4>
+      <ul class="flex flex-col gap-2">
+        <li>
+          <a class="hover:text-secondary-400" href="#" target="_blank">Inicio</a
+          >
+        </li>
+        <li>
+          <a class="hover:text-secondary" href="#" target="_blank">Servicios</a>
+        </li>
+        <li>
+          <a class="hover:text-secondary" href="#" target="_blank">Nosotros</a>
+        </li>
+        <li>
+          <a class="hover:text-secondary" href="#" target="_blank">Contacto</a>
+        </li>
+      </ul>
+    </nav>
+    <address>
+      <h4 class="font-bold mb-4">Contacto</h4>
+      <div class="flex flex-col gap-4">
+        <p>support@cloutify.pe</p>
+        <p>(+51 991 624 039)</p>
+        <p>Lima/Perú</p>
+      </div>
+      <img />
+    </address>
+  </Container>
+  <Container>
+    <p class="text-center text-sm text-slate-500 mt-6">
+      Copyright © {new Date().getFullYear()} Cloutify. Todos los derechos
+      reservados.
+    </p>
+  </Container>
+  <style>
+    .h-gradient {
+      /* Ajusta el gradiente con los colores y la dirección que prefieras */
+      background-image: linear-gradient(to top, theme('colors.secondary.DEFAULT'), theme('colors.secondary.500'));
+      /* Asegúrate de que el footer tenga algún contenido o establece una altura mínima para visualizar el gradiente */
+      min-height: 100px;
+      /* Otros estilos que necesites */
+      color: white;
+      padding: 20px;
+    }
+  </style>
+</footer>
